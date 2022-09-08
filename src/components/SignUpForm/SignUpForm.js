@@ -14,7 +14,7 @@ const SignUpForm = () => {
 
   useEffect(()=>{
     if (isRegister) navigate('/login')
-  },[isRegister])
+  },[isRegister, navigate])
 
   const handleSubmit = (e) => {
     e.preventDefault()

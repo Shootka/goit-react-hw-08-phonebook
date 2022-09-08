@@ -12,7 +12,7 @@ const UserMenu = () => {
     if (!isLoggedIn) {
       navigate('/');
     }
-  }, []);
+  }, [navigate]);
   return (
     <>
       <div className={'user-menu'}>

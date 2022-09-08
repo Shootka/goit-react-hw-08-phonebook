@@ -13,7 +13,7 @@ const LoginForm = () => {
 
   useEffect(() => {
     if (isLoggedIn) navigate('/contacts');
-  }, [isLoggedIn]);
+  }, [isLoggedIn, navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
