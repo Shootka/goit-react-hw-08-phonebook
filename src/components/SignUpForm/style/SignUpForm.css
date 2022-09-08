@@ -1,0 +1,15 @@
+.sign-up{
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  gap: 30px;
+  border: 1px solid blueviolet;
+  padding: 25px;
+}
+.field{
+  width: 270px;
+  height: 35px;
+}
+.title{
+  margin: 0;
+}

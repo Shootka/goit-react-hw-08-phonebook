@@ -1,11 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { addItem } from '../contactsSlice';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com'
+axios.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem('token') || ''}`
 
 export const addContact = createAsyncThunk(
   'contacts/addContact',
   async (data, { dispatch }) => {
-    const res = await axios.post(`https://6319fc396b4c78d91b49a0a1.mockapi.io/contacts`, data);
+    const res = await axios.post(`/contacts`, data);
     dispatch(addItem(res.data));
   },
 );

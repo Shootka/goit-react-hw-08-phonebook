@@ -8,7 +8,7 @@ const ContactListItem = ({ id, name, number }) => {
   return (
     <li style={{ display: 'flex', alignItems: 'center', alignContent: 'center', gap: 10, height: 75 }}>
       <p>{name} {number}</p>
-      <button id={id} style={{ height: 20 }}
+      <button id={id}
               onClick={(event) => dispatch(deleteContact(event.target?.id))}
       >delete
       </button>

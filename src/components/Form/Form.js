@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { divStyle } from '../style';
 import Input from '../Input/Input';
-import { nameTitle, numberTitle } from '../static/titles';
-import { contactNameRegex, contactNumberRegex } from '../static/regex';
+import { nameTitle, numberTitle } from '../../static/titles';
+import { contactNameRegex, contactNumberRegex } from '../../static/regex';
 
 const Form = ({ submitData }) => {
   const [formData, setFormData] = useState({ name: '', number: '' });

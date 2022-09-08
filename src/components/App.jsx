@@ -1,30 +1,8 @@
-import React, { useEffect } from 'react';
-import Form from './Form/Form';
-import ContactList from './ContactList/ContactList';
-import Filter from './Filter/Filter';
-import { useSelector } from 'react-redux';
-import { fetchContacts } from '../store/slice/contacts/asyncSlice/fetchContacts';
-import { useDispatch } from 'react-redux';
-import { addContact } from '../store/slice/contacts/asyncSlice/addContact';
+import React  from 'react';
+import UserMenu from './UserMenu/UserMenu';
+import AppRoutes from '../routes/AppRoutes';
 
 const App = () => {
-  const { items } = useSelector(state => state.contacts);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchContacts())
-  }, [dispatch]);
-  const submitHandler = (data) => {
-    localStorage.setItem('contacts', JSON.stringify(items));
-    if (items
-      .map(el => el.name)
-      .includes(data.name)
-    ) {
-      return alert('already in contacts');
-    } else {
-      dispatch(addContact(data));
-    }
-  };
   return (
     <div style={{
       height: '100%',
@@ -36,10 +14,8 @@ const App = () => {
       fontSize: 40,
       color: '#010101',
     }}>
-      Phonebook
-      <Form submitData={submitHandler} />
-      <Filter />
-      <ContactList title={'Contacts'} />
+      <UserMenu />
+      <AppRoutes />
     </div>
   );
 };

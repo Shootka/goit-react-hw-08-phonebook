@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Input from '../Input/Input';
-import { setFilter } from '../../store/slice/filterSlice';
+import { setFilter } from '../../store/slice/filter/filterSlice';
 import { useDispatch } from 'react-redux';
 
 const Filter = () => {
