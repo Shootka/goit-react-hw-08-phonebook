@@ -7,7 +7,7 @@ import { addItem } from '../store/slice/contactsSlice';
 import { useDispatch } from 'react-redux';
 
 const App = () => {
-  const { items, filter } = useSelector(state => state.contacts)
+  const { items } = useSelector(state => state.contacts)
   const dispatch = useDispatch();
 
   const submitHandler = (data) => {
