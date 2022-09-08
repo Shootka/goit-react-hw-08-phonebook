@@ -14,7 +14,6 @@ const App = () => {
   useEffect(() => {
     dispatch(fetchContacts())
   }, [dispatch]);
-  console.log(items);
   const submitHandler = (data) => {
     localStorage.setItem('contacts', JSON.stringify(items));
     if (items
@@ -23,8 +22,7 @@ const App = () => {
     ) {
       return alert('already in contacts');
     } else {
-      dispatch(addContact(
-        { id: String(Math.floor(Math.random() * 9293).toString(10)), ...data }));
+      dispatch(addContact(data));
     }
   };
   return (
