@@ -1,24 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Form from './Form/Form';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
 import { useSelector } from 'react-redux';
-import { addItem } from '../store/slice/contactsSlice';
+import { fetchContacts } from '../store/slice/contacts/asyncSlice/fetchContacts';
 import { useDispatch } from 'react-redux';
+import { addContact } from '../store/slice/contacts/asyncSlice/addContact';
 
 const App = () => {
-  const { items } = useSelector(state => state.contacts)
+  const { items } = useSelector(state => state.contacts);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(fetchContacts())
+  }, [dispatch]);
+  console.log(items);
   const submitHandler = (data) => {
-    localStorage.setItem('contacts', JSON.stringify(items))
+    localStorage.setItem('contacts', JSON.stringify(items));
     if (items
       .map(el => el.name)
       .includes(data.name)
     ) {
-      return alert('already in cotacts');
+      return alert('already in contacts');
     } else {
-      dispatch(addItem({ id: Math.floor(Math.random() * 999293).toString(10), ...data }))
+      dispatch(addContact(
+        { id: String(Math.floor(Math.random() * 9293).toString(10)), ...data }));
     }
   };
   return (
@@ -34,7 +40,7 @@ const App = () => {
     }}>
       Phonebook
       <Form submitData={submitHandler} />
-      <Filter/>
+      <Filter />
       <ContactList title={'Contacts'} />
     </div>
   );

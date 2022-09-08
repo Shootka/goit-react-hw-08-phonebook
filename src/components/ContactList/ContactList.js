@@ -4,14 +4,15 @@ import ContactListItem from '../ContactListItem/ContactListItem';
 import { useSelector } from 'react-redux';
 
 const ContactList = ({ title }) => {
-  const { items, filter } = useSelector(state => state.contacts)
-
+  const { items, isLoading, error } = useSelector(state => state.contacts)
+  const { filter } = useSelector(state => state.filter)
   const filteredContacts = items.filter(el => {
     return el?.name?.toLowerCase().includes(filter?.toLowerCase() || '');
   });
-
+  if (isLoading) return <div>Loading...</div>
   return (
     <ul>
+      {error && <div>{error}</div>}
       {title}
       {filteredContacts?.map((contact) => {
         return <ContactListItem

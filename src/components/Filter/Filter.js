@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Input from '../Input/Input';
-import { setFilter } from '../../store/slice/contactsSlice';
+import { setFilter } from '../../store/slice/filterSlice';
 import { useDispatch } from 'react-redux';
 
 const Filter = () => {
+
   const dispatch = useDispatch();
   return (
     <div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { deleteItem } from '../../store/slice/contactsSlice';
 import { useDispatch } from 'react-redux';
+import { deleteContact } from '../../store/slice/contacts/asyncSlice/deleteContact';
 
 const ContactListItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
@@ -9,7 +9,7 @@ const ContactListItem = ({ id, name, number }) => {
     <li style={{ display: 'flex', alignItems: 'center', alignContent: 'center', gap: 10, height: 75 }}>
       <p>{name} {number}</p>
       <button id={id} style={{ height: 20 }}
-              onClick={(event) => dispatch(deleteItem(event.target?.id))}
+              onClick={(event) => dispatch(deleteContact(event.target?.id))}
       >delete
       </button>
     </li>
