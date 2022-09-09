@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Outlet } from 'react-router-dom';
 import './style/UserMenu.css';
@@ -8,17 +8,13 @@ const UserMenu = () => {
   const { isLoggedIn, token, email } = useSelector(state => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  useEffect(() => {
-    if (!isLoggedIn) {
-      navigate('/');
-    }
-  }, [navigate, isLoggedIn]);
   return (
     <>
       <div className={'user-menu'}>
         <p className={'main-title'}>Phonebook</p>
         <div className={'button-group'}>
-          {!isLoggedIn
+          {
+            !isLoggedIn
             ? <button onClick={() => navigate('/register')}>Register</button>
             : <button className={'exit'} onClick={() => dispatch(logout(token))}>Logout</button>
           }

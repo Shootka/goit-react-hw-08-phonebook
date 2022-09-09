@@ -13,7 +13,7 @@ const AppRoutes = () => {
       <Route path='/contacts' element={isLoggedIn ? <Contacts /> : <Navigate to={'/login'} replace />} />
       <Route path='/login' element={<LoginForm />} />
       <Route path='/register' element={token && isLoggedIn ? <Contacts /> : <SignUpForm />} />
-      <Route path='*' element={''} />
+      <Route path='*' element={<Navigate to={'/'} replace />} />
     </Routes>
   );
 };

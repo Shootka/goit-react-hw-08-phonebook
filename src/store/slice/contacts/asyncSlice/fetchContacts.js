@@ -14,7 +14,6 @@ export const fetchContacts = createAsyncThunk(
       if (response.statusText !== 'OK') {
         throw new Error('Bad request');
       }
-      console.log(response);
       return response.data;
     } catch (err) {
       return rejectWithValue(err.message);
