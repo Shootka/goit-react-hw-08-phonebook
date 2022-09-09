@@ -15,7 +15,6 @@ export const register = createAsyncThunk(
             'Access-Control-Allow-Origin': '*',
           },
         });
-      console.log(res.data);
       dispatch(setUser(res.data));
     } catch (e) {
       console.error(e.message);
