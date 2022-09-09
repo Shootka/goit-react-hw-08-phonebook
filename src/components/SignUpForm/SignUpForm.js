@@ -44,6 +44,7 @@ const SignUpForm = () => {
         className={'field'}
         autoComplete={'false'}
         type='password'
+        minLength="7"
         onChange={(e) => {
         setPassword(e.target.value);
       }} />
